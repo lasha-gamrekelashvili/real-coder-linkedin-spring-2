@@ -1,18 +1,19 @@
-//package com.realcoders.realcoderlinkedinspring2.web.validator;
-//
-//import lombok.RequiredArgsConstructor;
-//import org.springframework.boot.web.servlet.FilterRegistrationBean;
-//import org.springframework.context.annotation.Configuration;
-//
-//@Configuration
-//@RequiredArgsConstructor
-//public class UserFilter {
-//
-//    public FilterRegistrationBean<UserValidator> validateUser(){
-//        FilterRegistrationBean<UserValidator> registrationBean = new FilterRegistrationBean<>();
-//        registrationBean.setFilter(new UserValidator());
-//        registrationBean.addUrlPatterns("/auth/register");
-//
-//        return registrationBean;
-//    }
-//}
+package com.realcoders.realcoderlinkedinspring2.web.validator.junk;
+
+import jakarta.servlet.*;
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.stereotype.Component;
+import org.springframework.web.util.ContentCachingRequestWrapper;
+
+import java.io.IOException;
+
+
+@Component
+public class UserFilter implements Filter {
+
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        ContentCachingRequestWrapper req = new ContentCachingRequestWrapper((HttpServletRequest) request);
+        chain.doFilter(req,response);
+    }
+}

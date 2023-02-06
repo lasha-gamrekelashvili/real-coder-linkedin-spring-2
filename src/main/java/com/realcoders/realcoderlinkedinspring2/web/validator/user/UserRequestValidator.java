@@ -25,6 +25,5 @@ public class UserRequestValidator {
         if( userDto.getAge() == null ){
             throw new AppException("age field can't be null or empty", HttpStatus.BAD_REQUEST);
         }
-
     }
 }
