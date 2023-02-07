@@ -19,7 +19,7 @@ public class JwtFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) request;
-        String key = req.getHeader("Bearer");
+        String key = req.getHeader("Authorization");
 
         UserEntity userEntity = jwtAuthenticator.verify(key);
 

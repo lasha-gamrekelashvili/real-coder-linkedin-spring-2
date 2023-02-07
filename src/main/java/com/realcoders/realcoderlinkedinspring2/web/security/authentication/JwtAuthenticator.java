@@ -18,6 +18,8 @@ public class JwtAuthenticator implements Authenticator{
 
     @Override
     public UserEntity verify(String idTokenString) {
+        String[] s = idTokenString.split(" ");
+        idTokenString = s[1];
 
         Jws<Claims> jws = jwtConfigurationProvider.parseJwt(idTokenString);
 
