@@ -29,6 +29,10 @@ public class UserServiceImpl implements UserService{
     public UserEntity login(UserLoginDto userLoginDto) {
         UserEntity userEntity = userRepository.getByUsername(userLoginDto.getUsername());
 
+        if(userEntity==null){
+            throw new AppException("Incorrect username or password", HttpStatus.UNAUTHORIZED);
+        }
+
         if(!userEntity.getPassword().equals(userLoginDto.getPassword())){
             throw new AppException("Incorrect username or password", HttpStatus.UNAUTHORIZED);
         }
