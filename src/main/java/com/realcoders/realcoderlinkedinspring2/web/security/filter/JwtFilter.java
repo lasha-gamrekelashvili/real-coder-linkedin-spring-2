@@ -28,6 +28,7 @@ public class JwtFilter implements Filter {
             response.getOutputStream().write("The provided JWT is invalid or has expired".getBytes());
             return;
         }
+
         chain.doFilter(request, response);
     }
 }
