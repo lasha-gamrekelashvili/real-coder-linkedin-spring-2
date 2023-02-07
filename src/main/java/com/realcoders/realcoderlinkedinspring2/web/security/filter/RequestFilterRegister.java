@@ -17,7 +17,7 @@ public class RequestFilterRegister {
         FilterRegistrationBean<Filter> registrationBean  = new FilterRegistrationBean<>();
 
         registrationBean.setFilter(new JwtFilter(jwtAuthenticator));
-        registrationBean.addUrlPatterns("/company");
+        registrationBean.addUrlPatterns("/companies");
 
         return registrationBean;
     }
