@@ -20,6 +20,7 @@ public class AuthController {
     private final UserService userService;
     private final JwtConfigurationProvider jwtConfigurationProvider;
 
+
     @PostMapping("/register")
     public ResponseEntity<Object> register(@RequestBody UserDto userDto){
         UserRequestValidator.validateRequest(userDto);
