@@ -1,4 +1,4 @@
-package com.realcoders.realcoderlinkedinspring2.core.exception;
+package com.realcoders.realcoderlinkedinspring2.core;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

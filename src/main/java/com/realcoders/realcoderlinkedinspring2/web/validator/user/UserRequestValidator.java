@@ -1,6 +1,6 @@
 package com.realcoders.realcoderlinkedinspring2.web.validator.user;
 
-import com.realcoders.realcoderlinkedinspring2.core.exception.AppException;
+import com.realcoders.realcoderlinkedinspring2.core.AppException;
 import com.realcoders.realcoderlinkedinspring2.web.dto.UserDto;
 import org.springframework.http.HttpStatus;
 

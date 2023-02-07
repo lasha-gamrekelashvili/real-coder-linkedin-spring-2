@@ -1,6 +1,6 @@
-package com.realcoders.realcoderlinkedinspring2.core.exception.handler;
+package com.realcoders.realcoderlinkedinspring2.core.handler;
 
-import com.realcoders.realcoderlinkedinspring2.core.exception.AppException;
+import com.realcoders.realcoderlinkedinspring2.core.AppException;
 import com.realcoders.realcoderlinkedinspring2.web.response.BasicResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

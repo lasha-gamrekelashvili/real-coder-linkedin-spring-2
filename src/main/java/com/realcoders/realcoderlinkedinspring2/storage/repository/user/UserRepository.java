@@ -7,8 +7,22 @@ import com.realcoders.realcoderlinkedinspring2.web.dto.UserDto;
 import java.util.List;
 
 public interface UserRepository {
-    void save(UserDto userDto);
-    boolean containsUsername(UserDto userDto);
-    boolean containsEmail(UserDto userDto);
+    UserEntity get(Integer id);
+
+    UserEntity getByUsername(String username);
+    UserEntity getByEmail(String email);
     List<UserEntity> getAll();
+
+    void insert(UserEntity userEntity);
+
+    void delete(Integer id);
+
+    void update(Integer id, UserEntity userEntity);
+
+    boolean containsId(Integer id);
+
+    boolean containsUsername(String username);
+
+    boolean containsEmail(String username);
+    boolean containsEntity(UserEntity userEntity);
 }
