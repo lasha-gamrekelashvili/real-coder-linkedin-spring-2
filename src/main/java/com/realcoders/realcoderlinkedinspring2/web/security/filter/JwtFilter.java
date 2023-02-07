@@ -12,7 +12,7 @@ import java.io.IOException;
 
 @RequiredArgsConstructor
 @Component
-public class ApiKeyFilter implements Filter {
+public class JwtFilter implements Filter {
 
     private final JwtAuthenticator jwtAuthenticator;
 
@@ -25,7 +25,7 @@ public class ApiKeyFilter implements Filter {
 
         if(userEntity==null){
             ((HttpServletResponse) response).setStatus(401);
-            response.getOutputStream().write("Access token is invalid".getBytes());
+            response.getOutputStream().write("The provided JWT is invalid or has expired".getBytes());
             return;
         }
         chain.doFilter(request, response);

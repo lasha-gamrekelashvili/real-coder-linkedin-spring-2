@@ -1,13 +1,13 @@
 package com.realcoders.realcoderlinkedinspring2.web.controller;
 
 import com.realcoders.realcoderlinkedinspring2.service.user.UserService;
-import com.realcoders.realcoderlinkedinspring2.web.dto.UserDto;
+import com.realcoders.realcoderlinkedinspring2.web.dto.UserRegistrationDto;
 import com.realcoders.realcoderlinkedinspring2.web.dto.UserLoginDto;
 import com.realcoders.realcoderlinkedinspring2.web.response.BasicResponse;
 import com.realcoders.realcoderlinkedinspring2.web.response.LoginResponse;
 import com.realcoders.realcoderlinkedinspring2.web.security.configuration.JwtConfigurationProvider;
 import com.realcoders.realcoderlinkedinspring2.web.validator.user.UserLoginValidator;
-import com.realcoders.realcoderlinkedinspring2.web.validator.user.UserRequestValidator;
+import com.realcoders.realcoderlinkedinspring2.web.validator.user.UserRegistrationValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,10 +22,10 @@ public class AuthController {
 
 
     @PostMapping("/register")
-    public ResponseEntity<Object> register(@RequestBody UserDto userDto){
-        UserRequestValidator.validateRequest(userDto);
+    public ResponseEntity<Object> register(@RequestBody UserRegistrationDto userRegistrationDto){
+        UserRegistrationValidator.validateRequest(userRegistrationDto);
 
-        userService.register(userDto);
+        userService.register(userRegistrationDto);
         return new ResponseEntity<>(BasicResponse.of("User created successfully"), HttpStatus.CREATED);
     }
 

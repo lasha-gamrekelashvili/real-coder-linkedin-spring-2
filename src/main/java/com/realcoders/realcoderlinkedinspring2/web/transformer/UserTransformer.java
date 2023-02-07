@@ -1,17 +1,17 @@
 package com.realcoders.realcoderlinkedinspring2.web.transformer;
 
 import com.realcoders.realcoderlinkedinspring2.storage.model.UserEntity;
-import com.realcoders.realcoderlinkedinspring2.web.dto.UserDto;
+import com.realcoders.realcoderlinkedinspring2.web.dto.UserRegistrationDto;
 
 public class UserTransformer {
-    public static UserEntity fromDto(UserDto userDto){
+    public static UserEntity fromDto(UserRegistrationDto userRegistrationDto){
         UserEntity userEntity = new UserEntity();
 
-        userEntity.setUsername(userDto.getUsername());
-        userEntity.setEmail(userDto.getEmail());
-        userEntity.setFull_name(userDto.getFull_name());
-        userEntity.setPassword(userDto.getPassword());
-        userEntity.setAge(userDto.getAge());
+        userEntity.setUsername(userRegistrationDto.getUsername());
+        userEntity.setEmail(userRegistrationDto.getEmail());
+        userEntity.setFull_name(userRegistrationDto.getFull_name());
+        userEntity.setPassword(userRegistrationDto.getPassword());
+        userEntity.setAge(userRegistrationDto.getAge());
 
         return userEntity;
     }

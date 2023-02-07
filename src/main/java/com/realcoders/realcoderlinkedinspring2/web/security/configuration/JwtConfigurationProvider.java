@@ -21,11 +21,12 @@ public class JwtConfigurationProvider {
 
     private final Key hmacKey = new SecretKeySpec(secret.getBytes(StandardCharsets.UTF_8),
             SignatureAlgorithm.HS256.getJcaName());
-    public String generateJWT(UserEntity user){
+
+    public String generateJWT(UserEntity user) {
         Instant now = Instant.now();
         return Jwts.builder()
-                .claim("id",user.getId())
-                .claim("username",user.getUsername())
+                .claim("id", user.getId())
+                .claim("username", user.getUsername())
                 .setSubject(user.getEmail())
                 .setId(UUID.randomUUID().toString())
                 .setIssuedAt(Date.from(now))
@@ -36,9 +37,13 @@ public class JwtConfigurationProvider {
     }
 
     public Jws<Claims> parseJwt(String jwtString) {
-        return Jwts.parserBuilder()
-                .setSigningKey(hmacKey)
-                .build()
-                .parseClaimsJws(jwtString);
+        try{
+            return Jwts.parserBuilder()
+                    .setSigningKey(hmacKey)
+                    .build()
+                    .parseClaimsJws(jwtString);
+        } catch (Exception e){
+            return null;
+        }
     }
 }

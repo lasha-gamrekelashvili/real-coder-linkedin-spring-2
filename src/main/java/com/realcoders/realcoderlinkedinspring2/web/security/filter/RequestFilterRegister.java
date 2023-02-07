@@ -16,7 +16,7 @@ public class RequestFilterRegister {
     public FilterRegistrationBean<Filter> registerPostCommentsRateLimiter(){
         FilterRegistrationBean<Filter> registrationBean  = new FilterRegistrationBean<>();
 
-        registrationBean.setFilter(new ApiKeyFilter(jwtAuthenticator));
+        registrationBean.setFilter(new JwtFilter(jwtAuthenticator));
         registrationBean.addUrlPatterns("/company");
 
         return registrationBean;
